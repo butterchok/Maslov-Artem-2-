@@ -16,8 +16,18 @@ DArray createDArray(int rows, int column) {
 	return arr;
 }
 
+//void setElement(DArray arr, int row, int column, int val) {
+//	*(arr.data + (row * arr.column) + column) = val;
+//}
+
 void setElement(DArray arr, int row, int column, int val) {
-	*(arr.data + (row * arr.column) + column) = val;
+	if (row >= 0 && row < arr.rows && column >= 0 && column < arr.column) {
+		*(arr.data + (row * arr.column) + column) = val;
+	}
+	else {
+		printf("ERROR: out of range\n");
+		exit(1);
+	}
 }
 
 int getElement(DArray arr, int row, int column) {
